@@ -1,0 +1,93 @@
+baseURL = 'https://sivchari.dev/'
+title = 'sivchari'
+theme = 'PaperMod'
+
+defaultContentLanguage = 'ja'
+defaultContentLanguageInSubdir = true
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[params]
+  author = 'sivchari'
+  description = 'sivchari - Software Engineer'
+  defaultTheme = 'auto'
+  showReadingTime = true
+  showShareButtons = false
+  showPostNavLinks = true
+  showBreadCrumbs = true
+  showCodeCopyButtons = true
+  disableSpecial1stPost = true
+
+  [params.homeInfoParams]
+    Title = 'sivchari'
+    Content = ''
+
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/sivchari'
+
+  [[params.socialIcons]]
+    name = 'x'
+    url = 'https://twitter.com/sivchari'
+
+[languages]
+  [languages.ja]
+    languageName = 'Japanese'
+    languageCode = 'ja'
+    weight = 1
+    contentDir = 'content/ja'
+    [languages.ja.params]
+      languageAltTitle = 'Japanese'
+    [[languages.ja.menu.main]]
+      identifier = 'logs-ja'
+      name = 'Logs'
+      url = '/ja/logs/'
+      weight = 1
+    [[languages.ja.menu.main]]
+      identifier = 'talks-ja'
+      name = 'Talks'
+      url = '/ja/talks/'
+      weight = 2
+    [[languages.ja.menu.main]]
+      identifier = 'about-ja'
+      name = 'About'
+      url = '/ja/about/'
+      weight = 3
+
+  [languages.en]
+    languageName = 'English'
+    languageCode = 'en'
+    weight = 2
+    contentDir = 'content/en'
+    [languages.en.params]
+      languageAltTitle = 'English'
+    [[languages.en.menu.main]]
+      identifier = 'logs-en'
+      name = 'Logs'
+      url = '/en/logs/'
+      weight = 1
+    [[languages.en.menu.main]]
+      identifier = 'talks-en'
+      name = 'Talks'
+      url = '/en/talks/'
+      weight = 2
+    [[languages.en.menu.main]]
+      identifier = 'about-en'
+      name = 'About'
+      url = '/en/about/'
+      weight = 3
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = 'monokai'
+  [markup.goldmark.renderer]
+    unsafe = true

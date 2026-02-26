@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>sivchari.io</title>
+  <script>
+    (function() {
+      var lang = navigator.language || navigator.userLanguage;
+      var isJapanese = lang.substring(0, 2) === 'ja';
+      var targetPath = isJapanese ? '/ja/' : '/en/';
+      window.location.replace(targetPath);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/ja/">
+  </noscript>
+</head>
+<body>
+  <p>Redirecting...</p>
+  <p><a href="/ja/">Japanese</a> | <a href="/en/">English</a></p>
+</body>
+</html>

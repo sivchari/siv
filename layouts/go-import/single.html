@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="go-import" content="sivchari.dev/{{ .Params.module }} git {{ .Params.repo }}">
+  <meta name="go-source" content="sivchari.dev/{{ .Params.module }} {{ .Params.repo }} {{ .Params.repo }}/tree/main{/dir} {{ .Params.repo }}/blob/main{/dir}/{file}#L{line}">
+  <meta http-equiv="refresh" content="0; url={{ .Params.repo }}">
+  <title>{{ .Params.module }}</title>
+</head>
+<body>
+  Redirecting to <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>...
+</body>
+</html>

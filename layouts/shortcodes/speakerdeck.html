@@ -1,0 +1,11 @@
+{{- $id := .Get 0 -}}
+{{- $ratio := .Get 1 | default "560/315" -}}
+<div class="speakerdeck-embed">
+  <iframe
+    class="speakerdeck-iframe"
+    frameborder="0"
+    src="https://speakerdeck.com/player/{{ $id }}"
+    allowfullscreen="true"
+    style="border: 0px; background: padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: {{ $ratio }};">
+  </iframe>
+</div>
