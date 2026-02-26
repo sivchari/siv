@@ -18,6 +18,26 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Install tcardgen
+        run: go install github.com/Ladicle/tcardgen@latest
+
+      - name: Generate OGP images
+        run: |
+          mkdir -p static/images/ogp
+          # Generate OGP for Japanese posts
+          find content/ja -name "*.md" -type f | while read file; do
+            tcardgen -f tcardgen/fonts -o static/images/ogp -c tcardgen/config.yaml "$file" 2>/dev/null || true
+          done
+          # Generate OGP for English posts
+          find content/en -name "*.md" -type f | while read file; do
+            tcardgen -f tcardgen/fonts -o static/images/ogp -c tcardgen/config.yaml "$file" 2>/dev/null || true
+          done
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:

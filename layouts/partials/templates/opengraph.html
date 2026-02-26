@@ -1,0 +1,39 @@
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{- $ogImage := "" -}}
+{{- if and .IsPage .File -}}
+  {{- $fileName := path.BaseName .File.Path -}}
+  {{- $ogImagePath := printf "images/ogp/%s.png" (strings.TrimSuffix ".md" $fileName) -}}
+  {{- if fileExists (printf "static/%s" $ogImagePath) -}}
+    {{- $ogImage = printf "/%s" $ogImagePath -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $ogImage -}}
+  {{- if .Params.images -}}
+    {{- $ogImage = index .Params.images 0 -}}
+  {{- else if .Site.Params.images -}}
+    {{- $ogImage = index .Site.Params.images 0 -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $ogImage -}}
+<meta property="og:image" content="{{ $ogImage | absURL }}" />
+{{- end -}}
+
+{{- if .IsPage }}
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+<meta property="article:section" content="{{ .Section }}" />
+{{ with .PublishDate }}<meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+{{ with .Lastmod }}<meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+{{- end -}}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+{{- if $ogImage -}}
+<meta name="twitter:image" content="{{ $ogImage | absURL }}" />
+{{- end -}}

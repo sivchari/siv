@@ -1,0 +1,12 @@
+template: tcardgen/template.png
+title:
+  start:
+    px: 60
+    py: 140
+  end:
+    px: 850
+    py: 420
+  fgHexColor: "#ffffff"
+  fontSize: 64
+  fontStyle: Bold
+  lineSpacing: 16
