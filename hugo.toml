@@ -58,6 +58,11 @@ buildExpired = false
       name = 'About'
       url = '/ja/about/'
       weight = 3
+    [[languages.ja.menu.main]]
+      identifier = 'job-ja'
+      name = 'Job'
+      url = '/ja/job/'
+      weight = 4
 
   [languages.en]
     languageName = 'English'
