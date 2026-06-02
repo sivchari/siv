@@ -10,3 +10,8 @@ title:
   fontSize: 64
   fontStyle: Bold
   lineSpacing: 16
+tags:
+  # NotoSansJP fonts shipped in tcardgen/fonts only include Bold and Regular.
+  # tcardgen renders tags in Medium by default, so override to Regular to avoid
+  # "this font family does not contain Medium style font" failures.
+  fontStyle: Regular
