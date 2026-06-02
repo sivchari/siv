@@ -1,5 +1,6 @@
 ---
 title: "I spoke at Go Conference mini in Sendai 2026"
+author: sivchari
 date: 2026-02-21
 tags: ["go", "conference", "sendai"]
 categories: ["conference"]

@@ -1,5 +1,6 @@
 ---
 title: "Go Conference mini in Sendai 2026 で登壇しました"
+author: sivchari
 date: 2026-02-21
 tags: ["go", "conference", "sendai"]
 categories: ["conference"]
