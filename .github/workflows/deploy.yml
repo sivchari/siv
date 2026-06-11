@@ -28,14 +28,16 @@ jobs:
 
       - name: Generate OGP images
         run: |
+          set -euo pipefail
           mkdir -p static/images/ogp
-          # Generate OGP for Japanese posts
-          find content/ja -name "*.md" -type f | while read file; do
-            tcardgen -f tcardgen/fonts -o static/images/ogp -c tcardgen/config.yaml "$file" 2>/dev/null || true
-          done
-          # Generate OGP for English posts
-          find content/en -name "*.md" -type f | while read file; do
-            tcardgen -f tcardgen/fonts -o static/images/ogp -c tcardgen/config.yaml "$file" 2>/dev/null || true
+          # Generate OGP only for blog posts (logs/ excluding section index pages).
+          # Other pages (_index.md, about, talks, job) lack the date/author front
+          # matter tcardgen requires and are intentionally skipped.
+          # Errors are NOT swallowed: a failure here fails the deploy so missing
+          # front matter (e.g. author) is caught instead of silently shipping no OGP.
+          find content/ja/logs content/en/logs -name "*.md" -type f ! -name "_index.md" | while read -r file; do
+            echo "Generating OGP for $file"
+            tcardgen -f tcardgen/fonts -o static/images/ogp -c tcardgen/config.yaml "$file"
           done
 
       - name: Setup Hugo
