@@ -1,5 +1,6 @@
 ---
 title: "Software Design 6月号に寄稿しました"
+author: sivchari
 date: 2026-06-10
 tags: ["go", "mutation-testing", "software-design"]
 categories: ["writing"]

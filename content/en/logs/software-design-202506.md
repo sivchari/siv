@@ -1,5 +1,6 @@
 ---
 title: "I wrote an article for Software Design June 2026"
+author: sivchari
 date: 2026-06-10
 tags: ["go", "mutation-testing", "software-design"]
 categories: ["writing"]
