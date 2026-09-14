@@ -41,6 +41,7 @@ buildExpired = false
     languageCode = 'ja'
     weight = 1
     contentDir = 'content/ja'
+    hasCJKLanguage = true
     [languages.ja.params]
       languageAltTitle = 'Japanese'
     [[languages.ja.menu.main]]
